@@ -17,7 +17,7 @@ export default function Home() {
   const [currentOrder, setCurrentOrder] = useState<Color[]>([]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+    <main className="flex min-h-screen flex-col items-center justify-center p-2">
       <h1 className="text-4xl font-bold mb-8">
         Spaceland Boss Fight Simon Says
       </h1>
@@ -94,12 +94,12 @@ const ColorOrder = ({
         <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent className="w-full">
-        <section className="grid grid-cols-4 gap-4 w-full">
+        <section className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
           {sortedConfigs.map(({ color, bgClass, hoverClass, activeClass }) => (
             <Button
               key={color}
               className={cn(
-                `${bgClass} h-44 ${hoverClass} text-white font-bold text-4xl`,
+                `${bgClass} h-24 sm:h-32 md:h-44 ${hoverClass} text-white font-bold text-4xl`,
                 order.includes(color) && activeClass
               )}
               onClick={() => setOrder([...order, color as Color])}
